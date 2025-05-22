@@ -1,9 +1,14 @@
-// src/config/environment.js - Configuración completa
+// src/config/environment.js
 const dotenv = require('dotenv');
 const path = require('path');
 
 // Load environment variables
-dotenv.config({ path: path.join(__dirname, '../../.env') });
+dotenv.config({ path: path.join(__dirname, '../../../.env') });
+
+// Debug: Verificar que las variables se cargaron
+console.log('MongoDB URI from env:', process.env.MONGODB_URI ? 'Loaded' : 'Not loaded');
+console.log('Current directory:', __dirname);
+console.log('Looking for .env at:', path.join(__dirname, '../../../.env'));
 
 const environment = {
     // Application
@@ -15,12 +20,9 @@ const environment = {
     DATABASE: {
         URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/trading_simulator',
         OPTIONS: {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
             maxPoolSize: 10,
             serverSelectionTimeoutMS: 5000,
-            socketTimeoutMS: 45000,
-            bufferMaxEntries: 0
+            socketTimeoutMS: 45000
         }
     },
 

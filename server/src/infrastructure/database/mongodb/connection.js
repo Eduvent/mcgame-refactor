@@ -11,16 +11,15 @@ class MongoConnection {
     async connect() {
         try {
             const options = {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
                 maxPoolSize: 10,
                 serverSelectionTimeoutMS: 5000,
                 socketTimeoutMS: 45000,
-                bufferMaxEntries: 0,
-                ...this.config.options
+                ...this.config.OPTIONS
             };
 
-            this.connection = await mongoose.connect(this.config.uri, options);
+            console.log('Attempting to connect to:', this.config.URI);
+
+            this.connection = await mongoose.connect(this.config.URI, options);
 
             logger.info(`MongoDB Connected: ${this.connection.connection.host}`);
 

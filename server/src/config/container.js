@@ -12,7 +12,7 @@ const MongoConnection = require('../infrastructure/database/mongodb/connection')
 const MongoUserRepository = require('../infrastructure/database/repositories/MongoUserRepository');
 const MongoOrderRepository = require('../infrastructure/database/repositories/MongoOrderRepository');
 const MongoOperationRepository = require('../infrastructure/database/repositories/MongoOperationRepository');
-const SocketIOConfig = require('../infrastructure/messaging/socketio/socketConfig');
+const SocketIOConfig = require('../infrastructure/messaging/soccketio/socketConfig');
 
 // Application Services
 const AuthService = require('../application/services/AuthService');
